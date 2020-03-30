@@ -14,11 +14,8 @@ after_success:
   - docker build -t ryan801/multi-nginx ./nginx
   - docker build -t ryan801/multi-server ./server
   - docker build -t ryan801/multi-worker ./worker
-
-#login to docker cli
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-#take images and push to docker hub
-  - docker push shawr3/multi-client
-  - docker push shawr3/multi-nginx
-  - docker push shawr3/multi-server
-  - docker push shawr3/multi-worker
+  - docker push ryan801/multi-client
+  - docker push ryan801/multi-nginx
+  - docker push ryan801/multi-server
+  - docker push ryan801/multi-worker
