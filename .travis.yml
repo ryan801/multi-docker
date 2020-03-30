@@ -3,16 +3,16 @@ services
   - docker
 
 before_install:
-  - docker build -t ryan801/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t shawr3/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-    - docker run -e CI=true ryan801/react-test npm test
+    - docker run -e CI=true shawr3/react-test npm test
 
 after_success:
-  - docker build -t ryan801/multi-client ./client
-  - docker build -t ryan801/multi-nginx ./nginx
-  - docker build -t ryan801/multi-server ./server
-  - docker build -t ryan801/multi-worker ./worker
+  - docker build -t shawr3/multi-client ./client
+  - docker build -t shawr3/multi-nginx ./nginx
+  - docker build -t shawr3/multi-server ./server
+  - docker build -t shawr3/multi-worker ./worker
 #login to docker cli
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 #take images and push to docker hub
